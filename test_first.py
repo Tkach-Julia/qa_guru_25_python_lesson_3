@@ -9,7 +9,7 @@ def driver():
 
     opts.add_argument("--headless=new")
     opts.add_argument("--window-size=1280,900")
-    driver = webdriver.Chrome(options=opts)
+driver = webdriver.Chrome(options=opts)
     yield driver
 
     driver.quit()
