@@ -180,36 +180,102 @@ email5["sent_text"] = f"""
 {email5["clean_body"]}
 """
 
-# print(f"Логин отправителя: {login_1}")
-# print(f"Домен отправителя: {domain_1}")
-# print(f"Логин отправителя: {login_2}")
-# print(f"Домен отправителя: {domain_2}")
-# print(f"Логин отправителя: {login_3}")
-# print(f"Домен отправителя: {domain_3}")
-# print(f"Логин отправителя: {login_4}")
-# print(f"Домен отправителя: {domain_4}")
-# print(f"Логин отправителя: {login_5}")
-# print(f"Домен отправителя: {domain_5}")
+# 11. Рассчитайте количество страниц печати для email["sent_text"]
+symbols_per_page = 500
+pages_email1 = (len(email1["sent_text"]) + 499) // symbols_per_page
+pages_email2 = (len(email2["sent_text"]) + 499) // symbols_per_page
+pages_email3 = (len(email3["sent_text"]) + 499) // symbols_per_page
+pages_email4 = (len(email4["sent_text"]) + 499) // symbols_per_page
+pages_email5 = (len(email5["sent_text"]) + 499) // symbols_per_page
 
+# 12. Проверьте пустоту темы и тела письма
+is_subject_empty_email1 = not email1["subject"].strip()
+is_subject_empty_email2 = not email2["subject"].strip()
+is_subject_empty_email3 = not email3["subject"].strip()
+is_subject_empty_email4 = not email4["subject"].strip()
+is_subject_empty_email5 = not email5["subject"].strip()
 
-# print(email1["short_body"])
-# print(email2["short_body"])
-# print(email3["short_body"])
-# print(email4["short_body"])
-# print(email5["short_body"])
+is_body_empty_email1 = not email1["body"].strip()
+is_body_empty_email2 = not email2["body"].strip()
+is_body_empty_email3 = not email3["body"].strip()
+is_body_empty_email4 = not email4["body"].strip()
+is_body_empty_email5 = not email5["body"].strip()
 
+# 13. Создайте «маску» e-mail отправителя
+email1["masked_from"] = login_1[0:2] + "***@" + domain_1
+email2["masked_from"] = login_2[0:2] + "***@" + domain_2
+email3["masked_from"] = login_3[0:2] + "***@" + domain_3
+email4["masked_from"] = login_4[0:2] + "***@" + domain_4
+email5["masked_from"] = login_5[0:2] + "***@" + domain_5
 
-# print(f"Личные домены (уникальные): {unique_personal_domains}")
-# print(f"Корпоративные домены (уникальные): {unique_corporate_domains}")
+# 14. Удалите из списка личных доменов значения "list.ru" и "bk.ru"
+unique_personal_domains.remove("list.ru")
+unique_personal_domains.remove("bk.ru")
 
-# print(email1["clean_body"].strip())
-# print(email2["clean_body"].strip())
-# print(email3["clean_body"].strip())
-# print(email4["clean_body"].strip())
-# print(email5["clean_body"].strip())
+# ----------Вывод печати для проверки----------
+print(f"Логин отправителя: {login_1}")
+print(f"Домен отправителя: {domain_1}")
+print(f"Логин отправителя: {login_2}")
+print(f"Домен отправителя: {domain_2}")
+print(f"Логин отправителя: {login_3}")
+print()
+print(f"Домен отправителя: {domain_3}")
+print(f"Логин отправителя: {login_4}")
+print(f"Домен отправителя: {domain_4}")
+print(f"Логин отправителя: {login_5}")
+print(f"Домен отправителя: {domain_5}")
+print()
 
-# print(email1["sent_text"])
-# print(email2["sent_text"])
-# print(email3["sent_text"])
-# print(email4["sent_text"])
-# print(email5["sent_text"])
+print(email1["short_body"])
+print(email2["short_body"])
+print(email3["short_body"])
+print(email4["short_body"])
+print(email5["short_body"])
+print()
+
+print(f"Личные домены (уникальные): {unique_personal_domains}")
+print(f"Корпоративные домены (уникальные): {unique_corporate_domains}")
+print()
+
+print(email1["clean_body"].strip())
+print(email2["clean_body"].strip())
+print(email3["clean_body"].strip())
+print(email4["clean_body"].strip())
+print(email5["clean_body"].strip())
+print()
+
+print(email1["sent_text"])
+print(email2["sent_text"])
+print(email3["sent_text"])
+print(email4["sent_text"])
+print(email5["sent_text"])
+print()
+
+print(pages_email1)
+print(pages_email2)
+print(pages_email3)
+print(pages_email4)
+print(pages_email5)
+print()
+
+print(is_subject_empty_email1)
+print(is_subject_empty_email2)
+print(is_subject_empty_email3)
+print(is_subject_empty_email4)
+print(is_subject_empty_email5)
+print()
+print(is_body_empty_email1)
+print(is_body_empty_email2)
+print(is_body_empty_email3)
+print(is_body_empty_email4)
+print(is_body_empty_email5)
+print()
+
+print(email1["masked_from"])
+print(email2["masked_from"])
+print(email3["masked_from"])
+print(email4["masked_from"])
+print(email5["masked_from"])
+print()
+
+print(unique_personal_domains)
