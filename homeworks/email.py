@@ -6,8 +6,8 @@ email1 = {
     "from": "Alice.Cooper@Company. ",
     "to": " bob_smith@Gmail.com ",
     "body": "Hello Bob,\n\tHere is the quarterly report."
-            "\n\tPlease review and let me know your feedback."
-            "\n\nBest,\nAlice",
+    "\n\tPlease review and let me know your feedback."
+    "\n\nBest,\nAlice",
 }
 
 email2 = {
@@ -36,7 +36,7 @@ email5 = {
     "from": " partner@organization.org ",
     "to": "lead_dev@icloud.com ",
     "body": "Hello,\nWe are interested in a partnership."
-            "\tPlease reply soon.\nRegards,\nTeam",
+    "\tPlease reply soon.\nRegards,\nTeam",
 }
 
 # 2. Добавьте дату отправки
@@ -98,20 +98,87 @@ corporate_domains_list = [
     "business.net",
 ]
 
-
 unique_personal_domains = list(set(personal_domains_list))
 unique_corporate_domains = list(set(corporate_domains_list))
 
-
 # 7. Проверьте что в списке личных и корпоративных доменов нет пересечений
+intersection = set(unique_personal_domains).intersection(set(unique_corporate_domains))
 
+if len(intersection) > 0:
+    print(f"Количество найденных пересечений: {len(intersection)}")
+    print()
+else:
+    print("Пересечений не найдено")
+    print()
 
-# print(email1)
-# print(email2)
-# print(email3)
-# print(email4)
-# print(email5)
+# 8. Проверьте «корпоративность» отправителя
+is_corporate_1 = domain_1 in unique_corporate_domains
+is_corporate_2 = domain_2 in unique_corporate_domains
+is_corporate_3 = domain_3 in unique_corporate_domains
+is_corporate_4 = domain_4 in unique_corporate_domains
+is_corporate_5 = domain_5 in unique_corporate_domains
 
+print("Домен отправителя: ")
+if is_corporate_1:
+    print(f"{domain_1} входит в список корпоративных доменов")
+else:
+    print(f"{domain_1} не входит в список корпоративных доменов")
+
+if is_corporate_2:
+    print(f"{domain_2} входит в список корпоративных доменов")
+else:
+    print(f"{domain_2} не входит в список корпоративных доменов")
+
+if is_corporate_3:
+    print(f"{domain_3} входит в список корпоративных доменов")
+else:
+    print(f"{domain_3} не входит в список корпоративных доменов")
+
+if is_corporate_4:
+    print(f"{domain_4} входит в список корпоративных доменов")
+else:
+    print(f"{domain_4} не входит в список корпоративных доменов")
+
+if is_corporate_5:
+    print(f"{domain_5} входит в список корпоративных доменов")
+    print()
+else:
+    print(f"{domain_5} не входит в список корпоративных доменов")
+    print()
+
+# 9. Соберите «чистый» текст сообщения
+email1["clean_body"] = email1["body"].replace("\n", " ").replace("\t", " ")
+email2["clean_body"] = email2["body"].replace("\n", " ").replace("\t", " ")
+email3["clean_body"] = email3["body"].replace("\n", " ").replace("\t", " ")
+email4["clean_body"] = email4["body"].replace("\n", " ").replace("\t", " ")
+email5["clean_body"] = email5["body"].replace("\n", " ").replace("\t", " ")
+
+# 10. Сформируйте текст отправленного письма многострочной f-строкой
+email1["sent_text"] = f"""
+Кому: {email1["to"]}, от {email1["from"]}
+Тема: {email1["subject"]}, дата {email1["date"]}
+{email1["clean_body"]}
+"""
+email2["sent_text"] = f"""
+Кому: {email2["to"]}, от {email2["from"]}
+Тема: {email2["subject"]}, дата {email2["date"]}
+{email2["clean_body"]}
+"""
+email3["sent_text"] = f"""
+Кому: {email3["to"]}, от {email3["from"]}
+Тема: {email3["subject"]}, дата {email3["date"]}
+{email3["clean_body"]}
+"""
+email4["sent_text"] = f"""
+Кому: {email4["to"]}, от {email4["from"]}
+Тема: {email4["subject"]}, дата {email4["date"]}
+{email4["clean_body"]}
+"""
+email5["sent_text"] = f"""
+Кому: {email5["to"]}, от {email5["from"]}
+Тема: {email5["subject"]}, дата {email5["date"]}
+{email5["clean_body"]}
+"""
 
 # print(f"Логин отправителя: {login_1}")
 # print(f"Домен отправителя: {domain_1}")
@@ -134,3 +201,15 @@ unique_corporate_domains = list(set(corporate_domains_list))
 
 # print(f"Личные домены (уникальные): {unique_personal_domains}")
 # print(f"Корпоративные домены (уникальные): {unique_corporate_domains}")
+
+# print(email1["clean_body"].strip())
+# print(email2["clean_body"].strip())
+# print(email3["clean_body"].strip())
+# print(email4["clean_body"].strip())
+# print(email5["clean_body"].strip())
+
+# print(email1["sent_text"])
+# print(email2["sent_text"])
+# print(email3["sent_text"])
+# print(email4["sent_text"])
+# print(email5["sent_text"])
