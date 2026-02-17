@@ -6,8 +6,8 @@ email1 = {
     "from": "Alice.Cooper@Company. ",
     "to": " bob_smith@Gmail.com ",
     "body": "Hello Bob,\n\tHere is the quarterly report."
-    "\n\tPlease review and let me know your feedback."
-    "\n\nBest,\nAlice",
+            "\n\tPlease review and let me know your feedback."
+            "\n\nBest,\nAlice",
 }
 
 email2 = {
@@ -36,7 +36,7 @@ email5 = {
     "from": " partner@organization.org ",
     "to": "lead_dev@icloud.com ",
     "body": "Hello,\nWe are interested in a partnership."
-    "\tPlease reply soon.\nRegards,\nTeam",
+            "\tPlease reply soon.\nRegards,\nTeam",
 }
 
 # 2. Добавьте дату отправки
@@ -118,33 +118,21 @@ is_corporate_3 = domain_3 in unique_corporate_domains
 is_corporate_4 = domain_4 in unique_corporate_domains
 is_corporate_5 = domain_5 in unique_corporate_domains
 
-print("Домен отправителя: ")
-if is_corporate_1:
-    print(f"{domain_1} входит в список корпоративных доменов")
-else:
-    print(f"{domain_1} не входит в список корпоративных доменов")
+message1 = "входит" if is_corporate_1 else "не входит"
+print(f"Домен отправителя {domain_1} {message1} в список корпоративных доменов")
 
-if is_corporate_2:
-    print(f"{domain_2} входит в список корпоративных доменов")
-else:
-    print(f"{domain_2} не входит в список корпоративных доменов")
+message2 = "входит" if is_corporate_2 else "не входит"
+print(f"Домен отправителя {domain_2} {message2} в список корпоративных доменов")
 
-if is_corporate_3:
-    print(f"{domain_3} входит в список корпоративных доменов")
-else:
-    print(f"{domain_3} не входит в список корпоративных доменов")
+message3 = "входит" if is_corporate_3 else "не входит"
+print(f"Домен отправителя {domain_3} {message3} в список корпоративных доменов")
 
-if is_corporate_4:
-    print(f"{domain_4} входит в список корпоративных доменов")
-else:
-    print(f"{domain_4} не входит в список корпоративных доменов")
+message4 = "входит" if is_corporate_4 else "не входит"
+print(f"Домен отправителя {domain_4} {message4} в список корпоративных доменов")
 
-if is_corporate_5:
-    print(f"{domain_5} входит в список корпоративных доменов")
-    print()
-else:
-    print(f"{domain_5} не входит в список корпоративных доменов")
-    print()
+message5 = "входит" if is_corporate_5 else "не входит"
+print(f"Домен отправителя {domain_5} {message5} в список корпоративных доменов")
+print()
 
 # 9. Соберите «чистый» текст сообщения
 email1["clean_body"] = email1["body"].replace("\n", " ").replace("\t", " ")
